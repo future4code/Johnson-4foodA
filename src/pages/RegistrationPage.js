@@ -2,7 +2,7 @@ import React from "react";
 import Logo  from './assets/logo.png'
 import Back  from './assets/back.png'
 import styled from "styled-components";
-import useForm from './hooks/useForm'
+import useForm from '../hooks/useForm'
 import axios from "axios";
 
 const ContainerRegistration = styled.div`

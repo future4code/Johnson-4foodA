@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Back  from './assets/back.png'
-import useForm from './hooks/useForm'
+import useForm from './useForm'
 import axios from "axios";
 
 const ContainerAddressRegistration = styled.div`
