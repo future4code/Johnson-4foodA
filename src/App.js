@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
+
 
 
 function App() {
@@ -6,7 +8,7 @@ function App() {
     <div>
   
     </div>
-  );
+  )
 }
 
 export default App;
