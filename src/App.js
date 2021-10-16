@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
+import { LoginPage } from "./pages/LoginPage/LoginPage";
+
 
 function App() {
   return (
     <div>
-     Teste
+  
+    <LoginPage></LoginPage>
+    
+      
     </div>
-  );
+  )
 }
 
 export default App;
