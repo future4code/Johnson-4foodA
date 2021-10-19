@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Back  from './assets/back.png'
-import useForm from './hooks/useForm'
+import useForm from '../../hooks/useForm'
 import axios from "axios";
 
 const ContainerAddressRegistration = styled.div`
@@ -19,6 +19,7 @@ display: flex;
 justify-content: first baseline;
 align-items: center;
 `
+
 const ButtonReturn = styled.img`
 cursor: pointer;
 padding-left: 2rem;
@@ -31,8 +32,8 @@ const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
 `
+
 const Text = styled.h3`
   width: 18.5rem;
   height: 1.125rem;
