@@ -1,16 +1,16 @@
 import React from "react";
-import { LoginPage } from "./pages/LoginPage/LoginPage";
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage'
-import AddressRegistrationPage from "./pages/AdressRegistrationPage/AddressRegistrationPage";
+import Router from './Router';
+
+
 
 
 function App() {
   return (
     <div>
-    <RegistrationPage/>
-    {/* <AddressRegistrationPage/> */}
+      <Router />
     </div>
   )
 }
 
 export default App;
+
