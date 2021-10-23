@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import React from "react";
 
 export const ContainerRegistration = styled.div`
 display: flex;
@@ -68,6 +68,7 @@ export const Input = styled.input`
   border: solid 1px gray;
   ::placeholder{
       color: lightgrey;
+  
   }
 `
 export const Button = styled.button`
@@ -78,49 +79,91 @@ export const Button = styled.button`
   border: none;
   color: black;
   background-color: #e8222e;
+  cursor: pointer;
 `
-export const TextName = styled.p`
-position: absolute;
-top: -10px;
-right: 260px;
-background-color: white;
-width: 70px;
-color: grey;
-`
-export const TextEmail = styled.p`
-position: absolute;
-top: 66px;
-right: 260px;
-background-color: white;
-width: 70px;
-color: grey;
+// export const TextName = styled.p`
+// position: absolute;
+// top: -10px;
+// right: 260px;
+// background-color: white;
+// width: 70px;
+// color: grey;
+// `
+// export const TextEmail = styled.p`
+// position: absolute;
+// top: 66px;
+// right: 260px;
+// background-color: white;
+// width: 70px;
+// color: grey;
+
+// `
+// export const TextCpf = styled.p`
+// position: absolute;
+// top: 142px;
+// right: 260px;
+// background-color: white;
+// width: 70px;
+// color: grey;
+
+// `
+
+// export const TextSenha = styled.p`
+// position: absolute;
+// top: 216px;
+// right: 260px;
+// background-color: white;
+// width: 70px;
+// color: grey;
+
+// `
+// export const TextConfirmar = styled.p`
+// position: absolute;
+// top: 292px;
+// right: 230px;
+// background-color: white;
+// width: 100px;
+// color: grey;
+
+// `
+// export const EyePassword = styled.img`
+// width: 28px;
+// height: 28px;
+// position: absolute;
+// bottom: 154px;
+// right: 8px;
+// cursor: pointer;
+// `
+// export const EyeConfirm = styled.img`
+// width: 28px;
+// height: 28px;
+// position: absolute;
+// bottom: 75px;
+// right: 8px;
+// cursor: pointer;
+// `
+// export const P = styled.p`
+// position: absolute;
+
+// `
+export const Label = styled.label`
 
 `
-export const TextCpf = styled.p`
-position: absolute;
-top: 142px;
-right: 260px;
-background-color: white;
-width: 70px;
-color: grey;
-
+export const ErrorMessage = styled.p`
+color: red;
 `
 
-export const TextSenha = styled.p`
-position: absolute;
-top: 216px;
-right: 260px;
-background-color: white;
-width: 70px;
-color: grey;
+export const CompleteInput = ({label, value, onChange}) =>{
 
-`
-export const TextConfirmar = styled.p`
-position: absolute;
-top: 292px;
-right: 230px;
-background-color: white;
-width: 100px;
-color: grey;
 
-`
+  return (
+         <div>
+           <Label>{label}</Label>
+           <Input
+            value={value.value}
+            onChange={onChange}
+           />
+           <ErrorMessage>{value.error}</ErrorMessage>
+         </div>
+  )
+}
