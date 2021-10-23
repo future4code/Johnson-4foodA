@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Back  from './assets/back.png'
+import Back  from '../../assets/back.png'
 import useForm from '../../hooks/useForm'
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
 import axios from "axios";
 
 const ContainerAddressRegistration = styled.div`
@@ -72,6 +74,7 @@ const Button = styled.button`
   border: none;
   color: black;
   background-color: #e8222e;
+  cursor: pointer;
 `
 const TextLogradouro = styled.p`
 position: absolute;
@@ -140,7 +143,9 @@ function AddressRegistrationPage() {
     state: "",
     complement: "",
   })
-
+  
+  const MySwal = withReactContent(Swal)
+  
   const onClickSend = (e) => {
     e.preventDefault()
 
@@ -153,17 +158,35 @@ function AddressRegistrationPage() {
       complement: form.complement,
     }
 
-    axios.post('https://us-central1-missao-newton.cloudfunctions.net/{{appName}}/address', body).then((response)=>{
+    const token = localStorage.getItem('token')
+    console.log(token)
+
+    axios.put('https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/address', body,  {headers: {
+      auth: token
+    }}).then((response)=>{
+      localStorage.setItem('tokenAdress', response.data.token)
       console.log(response)
 
+      MySwal.fire(
+        'Endereço cadastrado com sucesso.',
+        '',
+        'success'
+    )
+
     }).catch((error)=>{
-     console.log(error.message) 
+     console.log(error.message)
+     MySwal.fire(
+      'Endereço não foi cadastrado, tente novamente.',
+      '',
+      'error'
+  )
     })
 
     clean()
 
   }
-
+   
+ 
 
     return (
       <ContainerAddressRegistration>
@@ -183,8 +206,8 @@ function AddressRegistrationPage() {
            onChange={onChange}
            value={form.street}
            requerid
-           pattern={"^.{10,}"}
-           title={'O texto deve ter pelo menos 10 caracteres.'}
+           pattern={"^.{5,}"}
+           title={'O texto deve ter pelo menos 5 caracteres.'}
            placeholder='Rua / Av.'
          />
          
