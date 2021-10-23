@@ -11,7 +11,7 @@ import {
   TituloEntrar,
 } from "./styles";
 import logo from "../../assets/logo.png";
-import useForm from "../../hooks/UseForm/UseForm";
+import useForm from "../../hooks/useForm";
 import axios from "axios";
 
 export const LoginPage = () => {
