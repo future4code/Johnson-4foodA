@@ -5,11 +5,9 @@ import Open from '../../assets/olho-aberto.png'
 import Close from '../../assets/olho-fechado.png'
 import { ContainerRegistration, EyePassword, CompleteInput, EyeConfirm, ImageLogo, ContainerReturn, ButtonReturn, Title, Text, Form, Input, Button, TextName, TextEmail, TextCpf, TextSenha, TextConfirmar } from "./styles";
 import useForm from '../../hooks/useForm'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+import swal from "sweetalert";
+import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
-
-
 
 
 function RegistrationPage() {
@@ -26,7 +24,7 @@ function RegistrationPage() {
     confirmPassword: "",
   })
 
-  const MySwal = withReactContent(Swal)
+  const MySwal = withReactContent(swal)
 
   const EyeOnClickPassword = () => {
     setShowPassword(!showPassword)
