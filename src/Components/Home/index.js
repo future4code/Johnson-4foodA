@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import logo from '../../Images/logo-future-eats@3x.png'
 import styled from 'styled-components'
-import { useHistory } from "react-router-dom";
+import  { useHistory } from "react-router-dom";
 
 const ContainerHome = styled.div`
   background-color: #e8222e;
@@ -20,7 +20,7 @@ const LogoImg = styled.img`
 function Home() {
   const history = useHistory();
   useEffect(() => {
-    setTimeout(() => history.push("/login"), 2000)
+    setTimeout(() => history.push("/login"), 3000)
   }, [history])
   return (
     <ContainerHome className="App">
