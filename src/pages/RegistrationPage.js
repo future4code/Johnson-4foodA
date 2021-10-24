@@ -5,6 +5,7 @@ import styled from "styled-components";
 import useForm from '../hooks/useForm'
 import axios from "axios";
 
+
 const ContainerRegistration = styled.div`
 display: flex;
 flex-direction: column;
