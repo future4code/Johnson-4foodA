@@ -7,12 +7,8 @@ import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 =======
 import Back  from './assets/back.png'
-<<<<<<< HEAD:src/hooks/AddressRegistrationPage.js
-import useForm from './useForm'
-=======
 import useForm from '../../hooks/useForm'
 >>>>>>> master:src/pages/AddRegistration/AddressRegistrationPage.js
->>>>>>> 227168319f4178d129dcdf7481c138ebd65a11cd:src/pages/AddRegistration/AddressRegistrationPage.js
 import axios from "axios";
 
 const ContainerAddressRegistration = styled.div`

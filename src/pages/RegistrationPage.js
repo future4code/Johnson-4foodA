@@ -151,7 +151,7 @@ function RegistrationPage() {
         password: form.password,
     }
 
-    axios.post('https://us-central1-missao-newton.cloudfunctions.net/{{appName}}/signup', body).then((response)=>{
+    axios.post('https://us-central1-missao-newton.cloudfunctions.net/fourFood4/signup', body).then((response)=>{
       console.log(response)
 
     }).catch((error)=>{
