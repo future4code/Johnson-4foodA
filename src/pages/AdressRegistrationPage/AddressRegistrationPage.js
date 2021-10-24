@@ -1,14 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-<<<<<<< HEAD:src/pages/AdressRegistrationPage/AddressRegistrationPage.js
 import Back  from '../../assets/back.png'
 import useForm from '../../hooks/useForm'
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
-=======
 import Back  from './assets/back.png'
 import useForm from '../../hooks/useForm'
->>>>>>> master:src/pages/AddRegistration/AddressRegistrationPage.js
 import axios from "axios";
 
 const ContainerAddressRegistration = styled.div`

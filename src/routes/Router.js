@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./Components/Home/index";
-import LoginPage from './pages/LoginPage/LoginPage';
+import Home from "../components/Home/index"
+import  { LoginPage } from "../pages/LoginPage/LoginPage"
 
 
 const Router = () => {
@@ -9,7 +9,7 @@ const Router = () => {
       <BrowserRouter>
         <Switch>
             <Route exact path={"/"}>
-                <Home />
+              <Home />
             </Route>
             <Route exact path={"/login"}>
                 <LoginPage />
