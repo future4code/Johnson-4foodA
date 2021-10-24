@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./Components/Home/index";
-import {LoginPage} from "./pages/LoginPage/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
-import DetailPage from "./pages/DetailPage/DetailPage"
+import Home from "../components/Home/index";
+import { LoginPage } from "../pages/LoginPage/LoginPage"
+import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
+import { DetailPage } from "../pages/DetailPage/DetailPage"
 
 
 
