@@ -98,7 +98,7 @@ function RegistrationPage() {
         <CompleteInput
           value={form.name}
           onChange={onChangeName}
-          label='Nome**'
+          label='Nome*'
         />
 
         <CompleteInput
