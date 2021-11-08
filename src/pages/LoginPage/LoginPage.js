@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Button,
   ButtonCadastro,
@@ -13,12 +13,17 @@ import {
 import logo from "../../assets/logo.png";
 import useForm from "../../hooks/useForm";
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 export const LoginPage = () => {
   const { form, onChange, clean } = useForm({
     email: "",
     password: "",
   });
+ 
+  const history = useHistory()
+
+  const [hasAddress, setHasAddress] = useState(false)
 
   const onClickSend = (e) => {
     e.preventDefault();
@@ -35,6 +40,15 @@ export const LoginPage = () => {
       .then((response) => {
         console.log(response);
         localStorage.setItem('token', response.data.token)
+        console.log(response.data.user.hasAddress)
+        setHasAddress(response.data.user.hasAddress)
+
+        if(hasAddress === false){
+          history.push("/endereco")
+        }else {
+          history.push("/detalhes")
+        }
+
       })
       .catch((error) => {
         console.log(error.message);
@@ -42,6 +56,10 @@ export const LoginPage = () => {
     clean();
   };
 
+  const onClickRegister = () =>{
+    history.push('/cadastro')
+  }
+ 
   return (
     <ContainerLogin>
       <ImageLogo src={logo} />
@@ -66,7 +84,7 @@ export const LoginPage = () => {
           required
         />
         <Button> Entrar </Button>
-        <ButtonCadastro>Não possui cadastro? Clique aqui</ButtonCadastro>
+        <span>Não possui cadastro? <ButtonCadastro onClick={onClickRegister}>Clique aqui</ButtonCadastro></span>
       </Form>
     </ContainerLogin>
   );

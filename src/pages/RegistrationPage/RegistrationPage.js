@@ -46,7 +46,6 @@ function RegistrationPage() {
     e.preventDefault()
 
 
-
     const body = {
       name: form.name,
       email: form.email,
@@ -100,6 +99,15 @@ function RegistrationPage() {
           onChange={onChangeName}
           label='Nome*'
         />
+
+         <CompleteInput
+          value={form.email}
+          onChange={onChange}
+          label='Email*'
+          name={'name'}
+          type='email'
+          requerid
+          placeholder='email@email.com' />
 
         <CompleteInput
           value={form.password}

@@ -52,11 +52,12 @@ export const Input = styled.input`
 export const Button = styled.button`
   width: 100%;
   height: 2.625rem;
-  margin: 1.2rem 0 0;
+  margin: 20px 0px;
   padding: 0 1rem;
   border: none;
   color: black;
   background-color: #e8222e;
+  cursor: pointer;
 `;
 export const TextEmail = styled.p`
   position: absolute;
@@ -83,9 +84,7 @@ export const TextSenha = styled.p`
   width: 70px;
   color: grey;
 `;
-export const ButtonCadastro = styled.p`
-  width: 18.5rem;
-  height: 1.125rem;
+export const ButtonCadastro = styled.button`
   font-family: Roboto;
   font-size: 1rem;
   font-weight: normal;
@@ -94,5 +93,12 @@ export const ButtonCadastro = styled.p`
   line-height: normal;
   letter-spacing: -0.39px;
   text-align: center;
-  color: var(--black);
+  border: none;
+  background-color: Transparent;
+  color: black;
+
+  :hover{
+    cursor: pointer;
+  }
+
 `;

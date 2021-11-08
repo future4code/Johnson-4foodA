@@ -146,7 +146,17 @@ export const Button = styled.button`
 // position: absolute;
 
 // `
+
+export const ContainerForm = styled.form`
+position: relative;
+`
 export const Label = styled.label`
+position: absolute;
+top: 3px;
+left: 8px;
+background-color: white;
+padding-right: 10px;
+
 
 `
 export const ErrorMessage = styled.p`
@@ -157,13 +167,15 @@ export const CompleteInput = ({label, value, onChange}) =>{
 
 
   return (
-         <div>
+         <ContainerForm>
            <Label>{label}</Label>
            <Input
             value={value.value}
             onChange={onChange}
+            required
+
            />
            <ErrorMessage>{value.error}</ErrorMessage>
-         </div>
+         </ContainerForm >
   )
 }
