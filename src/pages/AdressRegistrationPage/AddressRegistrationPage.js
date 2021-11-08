@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-
-import Back  from '../../assets/back.png'
-import useForm from '../../hooks/useForm'
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
-
-import Back  from './assets/back.png'
+import Back  from '../../assets/back.png'
 import useForm from '../../hooks/useForm'
-
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
+
+const MySwal = withReactContent(Swal)
+
 
 const ContainerAddressRegistration = styled.div`
 display: flex;
@@ -149,7 +148,8 @@ function AddressRegistrationPage() {
     complement: "",
   })
   
-  const MySwal = withReactContent(Swal)
+  const history = useHistory()
+  
   
   const onClickSend = (e) => {
     e.preventDefault()
@@ -162,6 +162,7 @@ function AddressRegistrationPage() {
       state: form.state,
       complement: form.complement,
     }
+
 
     const token = localStorage.getItem('token')
     console.log(token)
@@ -191,13 +192,15 @@ function AddressRegistrationPage() {
 
   }
    
- 
+  const Return = () => {
+    history.goBack()
+  }
 
     return (
       <ContainerAddressRegistration>
 
         <ContainerReturn>
-          <ButtonReturn src={Back} />
+          <ButtonReturn onClick={Return} src={Back} />
         </ContainerReturn>
 
        <Title>
