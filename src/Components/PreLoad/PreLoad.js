@@ -17,11 +17,13 @@ const LogoImg = styled.img`
   align-self: center;
 `
 
-function Home() {
+const PreLoad = () => {
+  
   const history = useHistory();
   useEffect(() => {
     setTimeout(() => history.push("/login"), 3000)
   }, [history])
+
   return (
     <ContainerHome className="App">
       <LogoImg src={logo}/>
@@ -29,4 +31,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default PreLoad
