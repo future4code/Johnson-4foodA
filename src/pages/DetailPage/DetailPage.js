@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useEffect } from "react";
 import React from "react"
+import CardRestaurantDetails from "../../Components/CardRestaurantDetails/CardRestaurantDetails";
+import CardItem from "../../Components/CardRestaurantDetails/CardItem";
+
 
 export const DetailPage = () => {
   
@@ -24,7 +27,8 @@ export const DetailPage = () => {
 
   return(
     <div>
-      <h1>Detalhes</h1>
+      <CardRestaurantDetails/>
+      <CardItem/>
       </div>
   )
 }
