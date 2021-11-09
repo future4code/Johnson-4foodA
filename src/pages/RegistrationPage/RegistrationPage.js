@@ -5,9 +5,11 @@ import Open from '../../assets/olho-aberto.png'
 import Close from '../../assets/olho-fechado.png'
 import { ContainerRegistration, EyePassword, CompleteInput, EyeConfirm, ImageLogo, ContainerReturn, ButtonReturn, Title, Text, Form, Input, Button, TextName, TextEmail, TextCpf, TextSenha, TextConfirmar } from "./styles";
 import useForm from '../../hooks/useForm'
-import swal from "sweetalert";
-import withReactContent from "sweetalert2-react-content";
+// import swal from "sweetalert";
+// import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
+import ReactInputMask from "react-input-mask";
+
 
 
 function RegistrationPage() {
@@ -16,7 +18,7 @@ function RegistrationPage() {
   const [showConfirm, setShowConfirm] = useState(false)
   const [value, setValue] = useState('')
 
-  const { form, onChange, onChangeName, clean, onChangePassword, onChangeConfirmPassword } = useForm({
+  const { form, onChange, onChangeName, clean, onChangePassword, onChangeConfirmPassword} = useForm({
     name: "",
     email: "",
     cpf: "",
@@ -24,7 +26,7 @@ function RegistrationPage() {
     confirmPassword: "",
   })
 
-  const MySwal = withReactContent(swal)
+  // const MySwal = withReactContent(swal)
 
   const EyeOnClickPassword = () => {
     setShowPassword(!showPassword)
@@ -58,20 +60,22 @@ function RegistrationPage() {
     axios.post('https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/signup', body).then((response) => {
       localStorage.setItem('token', response.data.token)
       console.log(response.data.token)
-      MySwal.fire(
-        'Usuário cadastrado com sucesso.',
-        '',
-        'success'
-      )
+      console.log(response)
+      // MySwal.fire(
+      //   'Usuário cadastrado com sucesso.',
+      //   '',
+      //   'success'
+      // )
 
 
 
     }).catch((error) => {
-      MySwal.fire(
-        'CPF ou email já existentes!',
-        '',
-        'error'
-      )
+      console.log(error.message)
+      // MySwal.fire(
+      //   'CPF ou email já existentes!',
+      //   '',
+      //   'error'
+      // )
     })
 
     clean()
@@ -98,28 +102,49 @@ function RegistrationPage() {
           value={form.name}
           onChange={onChangeName}
           label='Nome*'
+          type='text'
+          requerid
+          placeholder='Nome'
         />
 
          <CompleteInput
           value={form.email}
           onChange={onChange}
           label='Email*'
-          name={'name'}
           type='email'
           requerid
           placeholder='email@email.com' />
+
+         <ReactInputMask size={44}
+          mask="999.999.999-99"
+          name={'cpf'}
+          value={form.cpf}
+          onChange={onChange}
+          requerid
+          placeholder='cpf'
+        />
 
         <CompleteInput
           value={form.password}
           onChange={onChangePassword}
           label='Senha*'
+          type='password'
+          requerid
+          placeholder='Senha'
         />
 
         <CompleteInput
           value={form.confirmPassword}
           onChange={onChangeConfirmPassword}
           label='Confirmar Senha*'
+          type='password'
+          requerid
+          placeholder='Senha'
         />
+
+      
+
+
 
         {/* <TextName>Nome*</TextName>
          <Input

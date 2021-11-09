@@ -163,8 +163,7 @@ export const ErrorMessage = styled.p`
 color: red;
 `
 
-export const CompleteInput = ({label, value, onChange}) =>{
-
+export const CompleteInput = ({label, value, onChange, placeholder, type}) =>{
 
   return (
          <ContainerForm>
@@ -172,9 +171,10 @@ export const CompleteInput = ({label, value, onChange}) =>{
            <Input
             value={value.value}
             onChange={onChange}
-            required
-
+            placeholder={placeholder}
+            type={type}
            />
+
            <ErrorMessage>{value.error}</ErrorMessage>
          </ContainerForm >
   )
