@@ -5,7 +5,7 @@ import { LoginPage } from "../pages/LoginPage/LoginPage"
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import { DetailPage } from "../pages/DetailPage/DetailPage"
 import AddressRegistrationPage from '../pages/AdressRegistrationPage/AddressRegistrationPage';
-import Home from "../pages/Home/Home";
+import Home from "../pages/HomePage/HomePage";
 
 
 
