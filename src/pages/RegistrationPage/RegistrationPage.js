@@ -8,6 +8,7 @@ import useForm from '../../hooks/useForm'
 // import swal from "sweetalert";
 // import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
+import { TextField } from "@material-ui/core";
 import ReactInputMask from "react-input-mask";
 
 
@@ -18,12 +19,12 @@ function RegistrationPage() {
   const [showConfirm, setShowConfirm] = useState(false)
   const [value, setValue] = useState('')
 
-  const { form, onChange, onChangeName, clean, onChangePassword, onChangeConfirmPassword} = useForm({
+  const { form, onChange, clean, } = useForm({
     name: "",
     email: "",
     cpf: "",
     password: "",
-    confirmPassword: "",
+    // confirmPassword: "",
   })
 
   // const MySwal = withReactContent(swal)
@@ -65,12 +66,11 @@ function RegistrationPage() {
       //   'Usuário cadastrado com sucesso.',
       //   '',
       //   'success'
-      // )
+      // 
 
 
-
-    }).catch((error) => {
-      console.log(error.message)
+    }).catch((response) => {
+      console.log(response)
       // MySwal.fire(
       //   'CPF ou email já existentes!',
       //   '',
@@ -96,67 +96,21 @@ function RegistrationPage() {
         <Text>Cadastrar</Text>
       </Title>
 
+
       <Form onSubmit={onClickSend}>
 
-        <CompleteInput
-          value={form.name}
-          onChange={onChangeName}
-          label='Nome*'
-          type='text'
-          requerid
-          placeholder='Nome'
-        />
-
-         <CompleteInput
-          value={form.email}
-          onChange={onChange}
-          label='Email*'
-          type='email'
-          requerid
-          placeholder='email@email.com' />
-
-         <ReactInputMask size={44}
-          mask="999.999.999-99"
-          name={'cpf'}
-          value={form.cpf}
-          onChange={onChange}
-          requerid
-          placeholder='cpf'
-        />
-
-        <CompleteInput
-          value={form.password}
-          onChange={onChangePassword}
-          label='Senha*'
-          type='password'
-          requerid
-          placeholder='Senha'
-        />
-
-        <CompleteInput
-          value={form.confirmPassword}
-          onChange={onChangeConfirmPassword}
-          label='Confirmar Senha*'
-          type='password'
-          requerid
-          placeholder='Senha'
-        />
-
-      
-
-
-
-        {/* <TextName>Nome*</TextName>
-         <Input
+        {/* <TextName>Nome*</TextName> */}
+         <TextField
+          variant='outlined'
           name={'name'}
           onChange={onChange}
           value={form.name}
           requerid
           pattern={"^.{10,}"}
           title={'O texto deve ter pelo menos 10 caracteres.'}
-          placeholder='Nome e Sobrenome'/> */}
+          placeholder='Nome e Sobrenome'/> 
 
-        {/* <TextEmail>E-mail*</TextEmail>
+        {/* <TextEmail>E-mail*</TextEmail> */}
         <Input
           name={'email'}
           onChange={onChange}
@@ -164,9 +118,10 @@ function RegistrationPage() {
           value={form.email}
           type='email'
           requerid
-          placeholder='email@email.com' />
+          title={'email@email.com.'}
+          placeholder='email@email.com'/>
 
-        <TextCpf>CPF*</TextCpf>
+        {/* <TextCpf>CPF*</TextCpf> */}
         <Input
           maxLength='14'
           title={'Cpf deve possuir 11 números. Deve ser preenchido com pontos e traços.'}
@@ -177,8 +132,9 @@ function RegistrationPage() {
           placeholder='000.000.000-00'
         />
 
-        <TextSenha>Senha*</TextSenha>
+        {/* <TextSenha>Senha*</TextSenha> */}
         <Input
+          name={'password'}
           type={showPassword ? 'text' : 'password'}
           requerid
           value={form.password}
@@ -188,22 +144,20 @@ function RegistrationPage() {
 
         {showPassword ? <EyePassword onClick={EyeOnClickPassword} src={Open} /> : <EyePassword onClick={EyeOnClickPassword} src={Close} />}
 
-        <TextConfirmar>Confirmar*</TextConfirmar>
+        {/* <TextConfirmar>Confirmar*</TextConfirmar> */}
         <Input
-          name={'password'}
           type={showConfirm ? 'text' : 'password'}
           onChange={onChange}
-          value={form.confirmPassword}
           requerid
           pattern={"^.{6,}"}
           title={'Deve ser a mesma que a anterior.'}
           placeholder='Confirme a senha anterior' />
 
-        {showConfirm ? <EyeConfirm onClick={EyeOnClickConfirm} src={Open} /> : <EyeConfirm onClick={EyeOnClickConfirm} src={Close} />} */}
+        {showConfirm ? <EyeConfirm onClick={EyeOnClickConfirm} src={Open} /> : <EyeConfirm onClick={EyeOnClickConfirm} src={Close} />}
 
 
 
-        <Button>Criar</Button>
+        <Button type='submit'>Criar</Button>
 
       </Form>
     </ContainerRegistration>
