@@ -5,6 +5,7 @@ import { LoginPage } from "../pages/LoginPage/LoginPage"
 import RegistrationPage from "../pages/RegistrationPage/RegistrationPage";
 import { DetailPage } from "../pages/DetailPage/DetailPage"
 import AddressRegistrationPage from '../pages/AdressRegistrationPage/AddressRegistrationPage';
+import Home from "../pages/HomePage/HomePage";
 
 
 
@@ -14,7 +15,13 @@ const Router = () => {
         <Switch>
             <Route exact path={"/"}>
               <PreLoad />
+              
             </Route>
+
+            <Route exact path={"/home"} >
+              <Home/>
+            </Route>
+
             <Route exact path={"/login"}>
                 <LoginPage />
             </Route>

@@ -43,10 +43,10 @@ export const LoginPage = () => {
         console.log(response.data.user.hasAddress)
         setHasAddress(response.data.user.hasAddress)
 
-        if(hasAddress === false){
-          history.push("/endereco")
-        }else {
+        if(hasAddress){
           history.push("/detalhes")
+        }else {
+          history.push("/endereco")
         }
 
       })

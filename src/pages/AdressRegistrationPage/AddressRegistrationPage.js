@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom';
 const MySwal = withReactContent(Swal)
 
 
+
 const ContainerAddressRegistration = styled.div`
 display: flex;
 flex-direction: column;
@@ -170,8 +171,9 @@ function AddressRegistrationPage() {
     axios.put('https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/address', body,  {headers: {
       auth: token
     }}).then((response)=>{
-      localStorage.setItem('tokenAdress', response.data.token)
+      localStorage.setItem('token', response.data.token)
       console.log(response)
+      history.push("/home")
 
       MySwal.fire(
         'Endereço cadastrado com sucesso.',
