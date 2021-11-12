@@ -81,71 +81,71 @@ export const Button = styled.button`
   background-color: #e8222e;
   cursor: pointer;
 `
-// export const TextName = styled.p`
-// position: absolute;
-// top: -10px;
-// right: 260px;
-// background-color: white;
-// width: 70px;
-// color: grey;
-// `
-// export const TextEmail = styled.p`
-// position: absolute;
-// top: 66px;
-// right: 260px;
-// background-color: white;
-// width: 70px;
-// color: grey;
+export const TextName = styled.p`
+position: absolute;
+top: -10px;
+right: 260px;
+background-color: white;
+width: 70px;
+color: grey;
+`
+export const TextEmail = styled.p`
+position: absolute;
+top: 66px;
+right: 260px;
+background-color: white;
+width: 70px;
+color: grey;
 
-// `
-// export const TextCpf = styled.p`
-// position: absolute;
-// top: 142px;
-// right: 260px;
-// background-color: white;
-// width: 70px;
-// color: grey;
+`
+export const TextCpf = styled.p`
+position: absolute;
+top: 142px;
+right: 260px;
+background-color: white;
+width: 70px;
+color: grey;
 
-// `
+`
 
-// export const TextSenha = styled.p`
-// position: absolute;
-// top: 216px;
-// right: 260px;
-// background-color: white;
-// width: 70px;
-// color: grey;
+export const TextSenha = styled.p`
+position: absolute;
+top: 216px;
+right: 260px;
+background-color: white;
+width: 70px;
+color: grey;
 
-// `
-// export const TextConfirmar = styled.p`
-// position: absolute;
-// top: 292px;
-// right: 230px;
-// background-color: white;
-// width: 100px;
-// color: grey;
+`
+export const TextConfirmar = styled.p`
+position: absolute;
+top: 292px;
+right: 230px;
+background-color: white;
+width: 100px;
+color: grey;
 
-// `
-// export const EyePassword = styled.img`
-// width: 28px;
-// height: 28px;
-// position: absolute;
-// bottom: 154px;
-// right: 8px;
-// cursor: pointer;
-// `
-// export const EyeConfirm = styled.img`
-// width: 28px;
-// height: 28px;
-// position: absolute;
-// bottom: 75px;
-// right: 8px;
-// cursor: pointer;
-// `
-// export const P = styled.p`
-// position: absolute;
+`
+export const EyePassword = styled.img`
+width: 28px;
+height: 28px;
+position: absolute;
+bottom: 154px;
+right: 8px;
+cursor: pointer;
+`
+export const EyeConfirm = styled.img`
+width: 28px;
+height: 28px;
+position: absolute;
+bottom: 75px;
+right: 8px;
+cursor: pointer;
+`
+export const P = styled.p`
+position: absolute;
 
-// `
+`
 
 export const ContainerForm = styled.form`
 position: relative;
@@ -163,8 +163,7 @@ export const ErrorMessage = styled.p`
 color: red;
 `
 
-export const CompleteInput = ({label, value, onChange}) =>{
-
+export const CompleteInput = ({label, value, onChange, placeholder, type}) =>{
 
   return (
          <ContainerForm>
@@ -172,9 +171,11 @@ export const CompleteInput = ({label, value, onChange}) =>{
            <Input
             value={value.value}
             onChange={onChange}
+            placeholder={placeholder}
+            type={type}
             required
-
            />
+
            <ErrorMessage>{value.error}</ErrorMessage>
          </ContainerForm >
   )
