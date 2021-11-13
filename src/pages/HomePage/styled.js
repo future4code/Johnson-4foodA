@@ -38,6 +38,7 @@ export const Input = styled.input`
 export const ScrollBar = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: auto;
   overflow-x: scroll;
   overflow-y: hidden;
