@@ -23,25 +23,27 @@ function HomePage() {
   const [restaurants, setRestaurants] = useState([]);
   const [filters, setFilters] = useState("");
 
-  const token = window.localStorage.getItem("token");
+  const token = localStorage.getItem("token");
+
+  
+
+const getRestaurants =() =>{
+  axios.get('https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants',
+  {headers:{
+    auth: token
+  }})
+  .then((response)=>{
+    console.log(response.data)
+  })
+  .catch((response)=>{
+    console.log(response.message)
+
+  })
+}
 
   useEffect(() => {
     getRestaurants();
   }, []);
-
-  const getRestaurants = async () => {
-    try {
-      const response = await axios.get(
-        "https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants",
-        {
-          headers: {
-            auth: token
-          }
-        }
-      );
-      setRestaurants(response.data.restaurants);
-    } catch (error) {}
-  };
 
   const goToSearchPage = () => {
     history.push("/search-restaurant");
