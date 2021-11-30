@@ -24,8 +24,6 @@ function HomePage() {
   const [filters, setFilters] = useState("");
   const [search, setSearch] =useState("")
 
-
-
   const token = localStorage.getItem("token");
 
   const getRestaurants = () => {
@@ -39,7 +37,7 @@ function HomePage() {
 
     })
   }
-
+  
   useEffect(() => {
     getRestaurants();
   }, []);
