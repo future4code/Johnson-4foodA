@@ -22,25 +22,22 @@ function HomePage() {
   const history = useHistory();
   const [restaurants, setRestaurants] = useState([]);
   const [filters, setFilters] = useState("");
+  const [search, setSearch] =useState("")
 
   const token = localStorage.getItem("token");
 
+  const getRestaurants = () => {
+    axios.get('https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants', {headers: {
+      auth: token
+    }}).then((response)=>{
+      setRestaurants(response.data.restaurants);
+      console.log(response.data)
+    }).catch((response)=>{
+       console.log(response)
+
+    })
+  }
   
-
-const getRestaurants =() =>{
-  axios.get('https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants',
-  {headers:{
-    auth: token
-  }})
-  .then((response)=>{
-    console.log(response.data)
-  })
-  .catch((response)=>{
-    console.log(response.message)
-
-  })
-}
-
   useEffect(() => {
     getRestaurants();
   }, []);
@@ -52,6 +49,16 @@ const getRestaurants =() =>{
   const sendDetailPage = (restaurantId) => {
     history.push(`/restaurant/details/${restaurantId}`);
   };
+
+  const searchRestaurant = restaurants.filter((restaurant)=>{
+    return restaurant.name.toLowerCase().includes(search.toLocaleLowerCase())
+
+  })
+
+  
+  
+
+
 
   const filteredRestaurant = (id) => {
     if (id === "Árabe") {
@@ -128,7 +135,11 @@ const getRestaurants =() =>{
         <MainContainer>
           <Form onClick={goToSearchPage}>
             <Button></Button>
-            <Input type="search" placeholder="Restaurante" />
+            <Input type="search" 
+            placeholder="Restaurante" 
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}/>
+
           </Form>
           <ScrollBar>
             <ItemScrollBar onClick={() => filteredRestaurant("Árabe")}>
@@ -192,6 +203,23 @@ const getRestaurants =() =>{
                 );
               }
             })}
+{/* 
+            {searchRestaurant.map((restaurant)=>{
+              return (
+                <ProductContainer
+                  onClick={() => sendDetailPage(restaurant.id)}
+                  key={restaurant.id}
+                >
+                  <Image BackgroundImage={restaurant.logoUrl} />
+                  <ProductTitle>{restaurant.name}</ProductTitle>
+                  <ProductDescription>
+                    <p>{restaurant.deliveryTime} min</p>
+                    <p>R${restaurant.shipping.toFixed(2)}</p>
+                  </ProductDescription>
+                </ProductContainer>
+              );
+            })}  */}
+
         </MainContainer>
       </RestContainer>
       <ContainerFooter>
